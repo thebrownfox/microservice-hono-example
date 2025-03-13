@@ -31,6 +31,7 @@ export function registerRoutes(app: Hono) {
     } catch (error) {
       console.error(`Error sending email: ${error}`);
 
+      // TODO: Handle error codes correctly
       if (error.code === 3) { // INVALID_ARGUMENT in gRPC
         return c.json({
           success: false,
