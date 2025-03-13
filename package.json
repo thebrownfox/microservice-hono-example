@@ -1,0 +1,25 @@
+{
+  "name": "microservice-hono-example",
+  "version": "1.0.0",
+  "description": "Microservice architecture using Hono.js",
+  "type": "module",
+  "scripts": {
+    "start": "docker-compose up",
+    "build": "docker-compose build",
+    "dev": "docker-compose up -d",
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply ."
+  },
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "gateway",
+    "services/*",
+    "shared"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.8.2"
+  }
+}

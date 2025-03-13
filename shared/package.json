@@ -1,0 +1,18 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "description": "Shared utilities for microservices",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && cp -r proto dist/"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./proto/*": "./proto/*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
