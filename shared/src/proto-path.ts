@@ -10,12 +10,9 @@ const __dirname = path.dirname(__filename);
  * @returns The absolute path to the proto file
  */
 export function getProtoPath(protoFileName: string): string {
-    // When used from node_modules, the path structure is different
-    // Try the development path first
-    const devPath = path.join(__dirname, '..', 'proto', protoFileName);
+    // NOTE: When used from node_modules/dist, the path structure is different
+    // NOTE: We use this only for development and copy the whole shared package when building the docker image
+    const protoPath = path.join(__dirname, '..', 'proto', protoFileName);
 
-    // If we're running from node_modules (built package)
-    const prodPath = path.join(__dirname, 'proto', protoFileName);
-
-    return devPath;
+    return protoPath;
 }
