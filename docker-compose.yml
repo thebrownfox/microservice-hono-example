@@ -6,9 +6,9 @@ services:
       context: .
       dockerfile: gateway/Dockerfile
     ports:
-      - "3000:3000"
+      - "3080:3080"
     environment:
-      - PORT=3000
+      - PORT=3080
       - MAILER_SERVICE_URL=mailer-service:50051
     depends_on:
       - mailer-service

@@ -37,7 +37,7 @@ npm run lint:fix
 
 ## Endpoints
 
-- Gateway: http://localhost:3000
+- Gateway: http://localhost:3080
 - Mailer Service: gRPC on port 50051
 
 ## Email API
@@ -45,7 +45,7 @@ npm run lint:fix
 Send emails via the API Gateway:
 
 ```bash
-curl -X POST http://localhost:3000/api/v1/mail \
+curl -X POST http://localhost:3080/api/v1/mail \
   -H "Content-Type: application/json" \
   -d '{
     "to": "recipient@example.com",
