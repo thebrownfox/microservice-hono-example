@@ -2,15 +2,17 @@ FROM node:23-alpine
 
 WORKDIR /app
 
-COPY package.json ./
+COPY services/mailer-service/package.json ./
 COPY tsconfig.json ./
-COPY config.ini ./
-COPY templates/ ./templates/
-COPY src/ ./src/
-COPY ../shared/ /app/shared/
+COPY services/mailer-service/config.ini ./
+COPY services/mailer-service/templates/ ./templates/
+COPY services/mailer-service/src/ ./src/
+COPY shared/ ./shared/
 
-RUN cd /app/shared && npm install && npm run build
-RUN npm install
+# Install dependencies in the shared package first
+# RUN cd ./shared && npm install && cd ..
+# Install mailer service dependencies and link shared package
+RUN npm install && npm link ./shared
 
 EXPOSE 50051
 

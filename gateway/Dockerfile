@@ -2,14 +2,16 @@ FROM node:23-alpine
 
 WORKDIR /app
 
-COPY package.json ./
+COPY gateway/package.json ./
 COPY tsconfig.json ./
-COPY src ./src
-COPY ../shared/ /app/shared/
+COPY gateway/src ./src
+COPY shared/ ./shared/
 
-RUN cd /app/shared && npm install && npm run build
-RUN npm install
+# Install dependencies in the shared package first
+# RUN cd ./shared && npm install && cd ..
+# Install gateway dependencies and link shared package
+RUN npm install && npm link ./shared
 
-EXPOSE 3000
+EXPOSE 3080
 
 CMD ["node", "--experimental-strip-types", "src/index.ts"]

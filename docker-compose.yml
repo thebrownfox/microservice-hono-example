@@ -1,5 +1,6 @@
 version: '3'
-
+# TODO: Add option to use a different ports
+# TODO: Add option to use a different .ini file
 services:
   gateway:
     build:
