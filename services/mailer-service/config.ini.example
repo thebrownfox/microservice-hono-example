@@ -1,0 +1,10 @@
+[smtp]
+host = smtp.mailtrap.io
+port = 2525
+secure = false
+user = your_mailtrap_username
+pass = your_mailtrap_password
+from = noreply@example.com
+
+[server]
+port = 50051
